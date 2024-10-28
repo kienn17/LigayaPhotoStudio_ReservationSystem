@@ -1,0 +1,635 @@
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-10
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => dasdasda.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php6C31.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-10
+    [time] => 10:00:00
+    [package] => tuwa
+    [socialMedia] => dsadasda.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\phpDC0E.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-10
+    [time] => 13:00:00
+    [package] => masaya
+    [socialMedia] => dsadda.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php877E.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-10
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => dasdada.com
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => image (7).png
+            [type] => image/png
+            [tmp_name] => G:\xampp\tmp\phpCFD3.tmp
+            [error] => 0
+            [size] => 286274
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-10
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => dasdad.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => image (7).png
+            [type] => image/png
+            [tmp_name] => G:\xampp\tmp\php75ED.tmp
+            [error] => 0
+            [size] => 286274
+        )
+
+)
+Array
+(
+    [firstName] => aisha
+    [surname] => salcedo
+    [email] => aisha@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-10-11
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => aisha.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php48C1.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => kienn
+    [surname] => morel
+    [email] => kiennmorel@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-11
+    [time] => 13:00:00
+    [package] => masaya
+    [socialMedia] => kiennmorel.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php6C7E.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-12
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => dasdasd.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 457128084_1263068868200208_611803484880046543_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php56B2.tmp
+            [error] => 0
+            [size] => 101300
+        )
+
+)
+Array
+(
+    [firstName] => Aisha
+    [surname] => Salcedo
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-18
+    [time] => 10:00:00
+    [package] => masaya
+    [socialMedia] => aishasalcedo.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => bini_mikha.jfif
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php2E75.tmp
+            [error] => 0
+            [size] => 63990
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 099998769090
+    [date] => 2024-10-15
+    [time] => 11:00:00
+    [package] => tuwa
+    [socialMedia] => angela.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => photo_6309617153703263782_y.jpg
+            [full_path] => photo_6309617153703263782_y.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php48A.tmp
+            [error] => 0
+            [size] => 104910
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 99998769090
+    [date] => 2024-10-15
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => angela.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [full_path] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php86ED.tmp
+            [error] => 0
+            [size] => 79264
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 99998769090
+    [date] => 2024-10-15
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => angela.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [full_path] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php9E4E.tmp
+            [error] => 0
+            [size] => 79264
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 99998769090
+    [date] => 2024-10-15
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => angela.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [full_path] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpC669.tmp
+            [error] => 0
+            [size] => 79264
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 99998769090
+    [date] => 2024-10-15
+    [time] => 14:00:00
+    [package] => masaya
+    [socialMedia] => angela.com
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => bch.jpg
+            [full_path] => bch.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php9BC1.tmp
+            [error] => 0
+            [size] => 93901
+        )
+
+)
+Array
+(
+    [firstName] => aisha 
+    [surname] => salcedo
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-10-15
+    [time] => 10:00:00
+    [package] => masaya
+    [socialMedia] => aishasalcedo.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => fdfdd.jpg
+            [full_path] => fdfdd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php324.tmp
+            [error] => 0
+            [size] => 80761
+        )
+
+)
+Array
+(
+    [firstName] => Tim
+    [surname] => De jorge
+    [email] => timdejorge@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-10-16
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => link.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => fdfdd.jpg
+            [full_path] => fdfdd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php1455.tmp
+            [error] => 0
+            [size] => 80761
+        )
+
+)
+Array
+(
+    [firstName] => Angela
+    [surname] => Logronio
+    [email] => angelalogronio@gmail.com
+    [phone] => 99998769090
+    [date] => 2024-10-18
+    [time] => 14:00:00
+    [package] => masaya
+    [socialMedia] => link.com
+    [paymentMethod] => maya
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [full_path] => 459305947_2395999580732099_4575604873121065177_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpB8B3.tmp
+            [error] => 0
+            [size] => 79264
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-22
+    [time] => 11:00:00
+    [package] => tuwa
+    [socialMedia] => sdasdasdasd.c0m
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => image (6).png
+            [type] => image/png
+            [tmp_name] => G:\xampp\tmp\phpE9A6.tmp
+            [error] => 0
+            [size] => 279816
+        )
+
+)
+Array
+(
+    [firstName] => aisha
+    [surname] => salcedo
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-22
+    [time] => 10:00:00
+    [package] => masaya
+    [socialMedia] => aisha.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\phpF440.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => kienn
+    [surname] => morel
+    [email] => kiennmorel@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-24
+    [time] => 14:00:00
+    [package] => ligaya
+    [socialMedia] => kienn.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 457128084_1263068868200208_611803484880046543_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\phpEC2D.tmp
+            [error] => 0
+            [size] => 101300
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => arlenevargas274@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-23
+    [time] => 10:00:00
+    [package] => masaya
+    [socialMedia] => dasdasda
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 456898355_835342308709502_6923431805335747385_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php82C8.tmp
+            [error] => 0
+            [size] => 83324
+        )
+
+)
+Array
+(
+    [firstName] => Arlene
+    [surname] => Vargas
+    [email] => testuser@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-23
+    [time] => 10:00:00
+    [package] => masaya
+    [socialMedia] => dasdasdas
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => bini_mikha.jfif
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php887D.tmp
+            [error] => 0
+            [size] => 63990
+        )
+
+)
+Array
+(
+    [firstName] => aisha
+    [surname] => salcedo
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-10-23
+    [time] => 14:00:00
+    [package] => tuwa
+    [socialMedia] => dsadasd
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => 457128084_1263068868200208_611803484880046543_n.jpg
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php934F.tmp
+            [error] => 0
+            [size] => 101300
+        )
+
+)
+Array
+(
+    [firstName] => aisha
+    [surname] => salcedo
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-10-24
+    [time] => 13:00:00
+    [package] => masaya
+    [socialMedia] => aisha.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => fdfdd.jpg
+            [full_path] => fdfdd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\phpEC4B.tmp
+            [error] => 0
+            [size] => 80761
+        )
+
+)
+Array
+(
+    [firstName] => kienn
+    [surname] => morel
+    [email] => aishasalcedo4@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-10-25
+    [time] => 11:00:00
+    [package] => masaya
+    [socialMedia] => aisha.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => fdfdd.jpg
+            [full_path] => fdfdd.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php822E.tmp
+            [error] => 0
+            [size] => 80761
+        )
+
+)
+Array
+(
+    [firstName] => Rhea
+    [surname] => Dionisio
+    [email] => rheafillarca@gmail.com
+    [phone] => 09950796318
+    [date] => 2024-10-28
+    [time] => 14:00:00
+    [package] => tuwa
+    [socialMedia] => rhea.com
+    [paymentMethod] => gcash
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => PIXECT-20240828003445.jpg
+            [full_path] => PIXECT-20240828003445.jpg
+            [type] => image/jpeg
+            [tmp_name] => C:\xampp\tmp\php2586.tmp
+            [error] => 0
+            [size] => 98480
+        )
+
+)

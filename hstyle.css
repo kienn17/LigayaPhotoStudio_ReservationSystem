@@ -1,0 +1,474 @@
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	list-style: none;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 16%;
+    background: transparent;
+    transition: ease .40s;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+}
+
+.navlist {
+    display: flex;
+    align-items: center; 
+    flex-grow: 1; 
+    justify-content: flex-end; 
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+	margin-top: -110px;
+}
+
+.navlist li {
+    margin: 0 5px; 
+}
+
+.navlist a {
+    display: inline-block;
+    color: #040000;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    text-decoration: none; 
+    transition: all .40s ease;
+}
+
+.navlist a:hover {
+    background: black;
+    color: #fff;
+	text-decoration: none;
+}
+
+.navlist a.active {
+    background: black;
+    color: #fff;
+}
+
+#menu-icon {
+    color: #fff;
+    font-size: 40px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none; 
+}
+
+section{
+	padding: 0 16%;
+}
+.main{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(image/background.png);
+	background-size: cover;
+	background-position: center;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	align-items: center;
+	
+}
+.main-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px; 
+    color: black;
+    max-width: none; 
+    line-height: 1.5; 
+    margin: 0; 
+    letter-spacing: 0.5px; 
+    font-weight: 700; 
+    margin-bottom: -15px;
+    margin-top: 80px;
+}
+
+.main-text p{
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+	
+}
+
+.main-button {
+    display: inline-block;
+    width: 230px;
+    height: 58px;
+    background: black;
+    color: white;
+    border: none;
+    outline: none;
+    line-height: 58px;
+    font-size: 20px;
+    font-weight: bold; 
+    transition: all .40s ease;
+    cursor: pointer;
+}
+.main-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white; /* Ensure link text color is white */
+    text-decoration: none !important; /* Remove underline from link */
+    line-height: 58px; /* Match line-height of button */
+    text-align: center; /* Center align text inside the link */
+}
+.main-button:hover a {
+    color: #040000; /* Change link color on hover */
+}
+.main-button:hover {
+    transform: scale(0.9);
+    background: gray;
+    color: #040000; 
+}
+
+
+
+.About-us{
+	background-color: #F8EDE3;
+	gap: 2rem;
+    height: 100vh;
+    align-items: center;
+}
+
+
+.about-text h1{
+	font-family: 'Montserrat', sans-serif;
+    font-size: 40px; 
+    color: black;
+    max-width: none; 
+    line-height: 1.5; 
+    margin: 0; 
+    letter-spacing: 0.5px; 
+    font-weight: 700;
+    margin-bottom: -15px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.about-text p{
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+	text-align: left;
+	width: 50%;
+	height: auto;
+	margin-top: 50px;
+}
+
+.about-img {
+    flex: 1; /* Allow image section to take up available space */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+	margin-top: -450px;
+}
+
+.about-img img {
+    width: 400px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.about-img img {
+    animation: bounce 2s infinite;
+}
+
+.service{
+	background-color: #D1E9F6;
+	gap: 2rem;
+    height: 130vh;
+    align-items: center;
+}
+
+.contact-text h1,
+.reviews-text h1,
+.gallery-text h1,
+.service-text h1{
+	font-family: 'Montserrat', sans-serif;
+    font-size: 40px; 
+    color: black;
+    max-width: none; 
+    line-height: 1.5; 
+    margin: 0; 
+    letter-spacing: 0.5px; 
+    font-weight: 700;
+    margin-bottom: -15px;
+	text-align: center;
+	
+}
+
+.service-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text inside the container */
+    padding: 20px; /* Optional: add some padding if needed */
+}
+
+.service-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center; /* Center text inside the paragraph */
+    width: 50%; /* Adjust as needed */
+    height: auto;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.service-img {
+    display: flex; /* Align images horizontally */
+    justify-content: center; /* Center images horizontally within the container */
+    gap: 40px; /* Add space between images */
+}
+
+.service-img img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    width: 450px; /* Adjust based on your design needs */
+	box-shadow: 2px 2px 20px gray;
+}
+
+.service-img img {
+    animation: pulse 3s infinite;
+}
+
+
+.gallery{
+	background-color: #F8EDE3;
+	gap: 2rem;
+    height: 140vh;
+    align-items: center;
+}
+
+.reviews-text,
+.gallery-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text inside the container */
+    padding: 20px; /* Optional: add some padding if needed */
+}
+
+.reviews-text p,
+.gallery-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center; /* Center text inside the paragraph */
+    width: 70%; /* Adjust as needed */
+    height: auto;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+
+.carousel-inner .item {
+	display: flex;
+}
+.carousel-inner .item .col-md-4 {
+	padding: 0 5px;
+}
+.carousel-inner .item img {
+	width: 100%;
+	height: auto;
+}
+
+
+.reviews{
+	background-color: #D1E9F6;
+	gap: 2rem;
+    height: 140vh;
+    align-items: center;
+	padding: 20px;
+}
+
+.reviews-img {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Three images per row */
+	gap: 20px; /* Adjust spacing between images */
+	justify-content: center; /* Center the grid within the container */
+	max-width: 1000%; /* Full width of the parent container */
+	margin: 0 auto; /* Center the container horizontally */
+}
+
+.reviews-img img {
+	width: 100%; /* Make images fill their grid cells */
+	height: auto; /* Maintain aspect ratio */
+	max-width: 300px; /* Set a larger maximum width for each image */
+	object-fit: cover; /* Ensure images cover the area without distortion */
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
+	cursor: pointer; /* Change cursor to pointer to indicate clickable */
+	box-shadow: 2px 2px 20px gray;
+
+
+}
+
+.reviews-img img:hover {
+	transform: scale(1.1); /* Slightly scale up the image */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for effect */
+}
+
+  /* Modal styles */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1000; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	width:50%; /* Adjust width as needed */
+	max-width: 500px; /* Optional: Control the maximum width of the modal */
+}
+
+.modal-close {
+	position: absolute;
+	top: 20px;
+	right: 35px;
+	color: #fff;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.contact{
+	background-color: #C0DBEA;
+	gap: 2rem;
+    height: 30vh;
+    align-items: center;
+	padding: 20px;
+}
+
+.social {
+	text-align: center; /* Center align the text inside the container */
+	margin: 20px 0; /* Optional: Add margin around the container */
+}
+
+.social a {
+    color: black;
+    margin: 0 20px;
+    text-decoration: none !important;
+    display: inline;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+    font-family: 'poppins', 'san-serif';
+    margin-left: 10px;
+    transition: color 0.3s ease;
+    margin-left: 60px;
+    transition: all .55s ease;
+	margin-top: 60px;
+    
+}
+
+.social a:hover{
+    color: gray;
+	text-decoration: none;
+	
+}
+
+.social a i{
+    vertical-align: middle;
+    margin-right: 10px
+}
+
+
+
+@media (max-width: 1330px){
+	header{
+		padding: 10px 5%;
+	}
+	.main-text h1{
+		font-size: 80px;
+		transition: .3s;
+	}
+}
+@media (max-width: 990px){
+	#menu-icon{
+		display: block;
+	}
+	.navlist{
+		position: absolute;
+		top: -600px;
+		left: 0;
+		right: 0;
+		flex-direction: column;
+		background: rgba(8,5,0,0.9);
+		text-align: left;
+		transition: all .40s ease;
+	}
+	.navlist a{
+		display: block;
+		padding: 1rem;
+		margin: 0.5rem;
+		border-left: 2px solid #fff;
+		color: #fff;
+	}
+}
