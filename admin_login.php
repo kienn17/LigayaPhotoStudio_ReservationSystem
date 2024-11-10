@@ -123,13 +123,12 @@
 
     .login-card, .signup-card, .forgotpassword-card {
         width:450px;
-        background: transparent;
+        background: #B9E5E8;
         padding: 2rem;
         border: 2px solid rgba(255, 255, 255, .5);
         border-radius: 20px;
         position: relative;
         height: 10%;
-        backdrop-filter: blur(20px);
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     }
 
@@ -223,7 +222,9 @@
         padding-left: calc(1rem * 3.5);
         border-radius: 10px;
         width: 70%;
-        transition: background .5s;    
+        transition: background .5s;   
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold; 
     }
 
     .login-card input:focus {
@@ -231,7 +232,7 @@
     }
 
     .login-card-form button {
-        background-color: black;
+        background-color: #7AB2D3;
         color: white;
         padding: 1rem;
         text-transform: uppercase;
@@ -243,7 +244,7 @@
     }
 
     .login-card-form button:hover {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: #4A628A;
     }
 
 

@@ -1,6 +1,3 @@
-<?php include('login_process.php'); ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    
     <title>Login</title>
 </head>
 <body>
@@ -34,14 +30,14 @@
                             <input v-model="password" type="password" name="password" id="login-password" placeholder="Password" required>
                         </div>
                         <div class="remember-forgot">
-                            <a href="forgot_password.php">Forgot Password</a>
+                            <a href="forgot_password.php" class="forgot-password-link">Forgot Password</a>
                         </div>
-                        <button type="submit"><a href="calendar.php">Login</button>
+                        <button type="submit">Login</button>
                         <div class="register-link">
-                            <p>Don't have an account? <a href="signup.php">Register</a></p>
+                            <p class="no-account-text">Don't have an account?</p>
+                            <a href="signup.php" class="register-link-text">Register</a>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -93,17 +89,11 @@
                     console.error(error);
                 }
             }
-
         }
     });
 </script>
 
-
-
-
-
 <style scoped>
-
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     body{
@@ -122,64 +112,22 @@
         display: flex;
         justify-content: space-between;
         opacity: 100;
-        
     }
 
-
-
-    .login-card, .signup-card, .forgotpassword-card {
-        width:450px;
-        background: transparent;
+    .login-card {
+        width: 450px;
+        background: #B9E5E8;
         padding: 2rem;
         border: 2px solid rgba(255, 255, 255, .5);
         border-radius: 20px;
         position: relative;
         height: 10%;
-        backdrop-filter: blur(20px);
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     }
 
-
-    .logo {
-        margin-bottom: 0%;
-    }
-
-    .logo img {
-        width:200px;
-    }
-
-    .logo,
-    .login-header,
-    .login-footer {
+    .login-header {
         text-align: center;
     }
-
-    .login-container .card a {
-        text-decoration: none;
-        color: khaki;
-    }
-
-    .login-container .card a:hover {
-        text-decoration: underline;
-    }
-
-    .forgotpassword-header,
-    .login-header,
-    .signup-header {
-        margin-bottom: 1rem;
-    }
-
-
-    .login-card h1 {
-        text-align: center;
-        color: black;
-    }
-
-    .login-card h4 {
-        text-align: center;
-        color: white;
-    }
-
 
     .login-header h3 {
         margin-top: -5px;
@@ -189,34 +137,10 @@
         color: black;
     }
 
-    .login-header h3 + div {
-        font-size: calc(1rem * .8);
-        opacity: .8;
-        color: white;
-    }
-
     .login-card-form {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-    }
-
-    .login-card-form .form-item {
-        position: relative;
-    }
-
-    .login-card-form .form-item .form-item-icon {
-        position: absolute;
-        top: .82rem;
-        left: 1.4rem;
-        font-size: 1.3rem;
-        opacity: .4;
-    }
-
-
-    .login-footer {
-        margin-top: 1.5rem;
-        font-size: calc(1rem * .8);
     }
 
     .login-card-form input[type="text"],
@@ -230,14 +154,11 @@
         border-radius: 10px;
         width: 70%;
         transition: background .5s;    
-    }
-
-    .login-card input:focus {
-        background: white;
+        font-family: 'Poppins', sans-serif;
     }
 
     .login-card-form button {
-        background-color: black;
+        background-color: #7AB2D3;
         color: white;
         padding: 1rem;
         text-transform: uppercase;
@@ -245,99 +166,62 @@
         transition: background .5s;
         width: 200px;
         margin: 0 auto;
-        
     }
 
     .login-card-form button:hover {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: #4A628A;
     }
-
-    button a {
-        text-decoration: none;
-        color: inherit; /* Inherit button color */
-    }
-
-
 
     .login-card-form .remember-forgot{
         display: flex;
         justify-content: space-between;
         font-size: 14.5px;
         margin: -14px 0 5px;
+        margin-top: 10px;
     }
-    .remember-forgot label input{
-        accent-color: #fff;
-        margin-right: 3px;
 
-    }
-    .remember-forgot a{
+    .remember-forgot a {
         color: rgb(0, 180, 252);
         text-decoration: none;
-
-    }
-    .remember-forgot a:hover{
-        text-decoration: underline;
     }
 
-    .login-card-form .register-link{
+    .remember-forgot a:hover {
+        text-decoration: none; /* No underline */
+    }
+
+    .register-link {
         font-size: 14.5px;
         text-align: center;
-        margin: 20px 0 15px;
-        margin-top: -5px;
-
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;  /* Align items vertically */
+        gap: 5px;  /* Add space between the elements */
     }
 
-    .register-link p a{
+    .register-link p.no-account-text {
+        color: black;
+        margin: 0; /* Ensure no extra margins */
+    }
+
+    .register-link .register-link-text {
         color: rgb(0, 180, 252);
-        text-decoration: none;
         font-weight: 600;
+        text-decoration: none;
     }
-    .register-link p a:hover{
+
+    .register-link .register-link-text:hover {
         text-decoration: underline;
     }
 
-
-
-    .toggle-password {
-        position: relative;
-        top: .82rem;
-        right: 1.4rem;
-        font-size: 1.3rem;
-        opacity: 0.4;
-        cursor: pointer;
-    }
-    /* Overlay styles */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent black overlay */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999; /* Ensure it's above other content */
-        visibility: hidden; /* Initially hidden */
-        opacity: 0; /* Initially transparent */
-        transition: opacity 0.5s ease, visibility 0.5s ease;
+    /* Styling for the Forgot Password link */
+    .forgot-password-link {
+        color: rgb(0, 180, 252);
+        text-decoration: none;
     }
 
-    /* Loader styles (centered) */
-    .loader {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center; /* Center the text horizontally */
-    }
-
-
-
-    /* Show the overlay and loader when needed */
-    .show-overlay {
-        visibility: visible;
-        opacity: 1;
+    .forgot-password-link:hover {
+        text-decoration: none; /* Remove underline */
     }
 </style>
 </html>

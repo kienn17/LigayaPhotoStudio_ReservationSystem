@@ -70,9 +70,15 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
                         </select>
                     </div>
                     <div class="input">
-                        <input type="file" @change="onFileChange" accept="image/*" required>
+                        <label for="paymentProof" class="file-label">
+                            <i class="fas fa-upload"></i> Proof of Payment
+                        </label>
+                        <input type="file" id="paymentProof" @change="onFileChange" accept="image/*">
                     </div>
-                    <button type="submit">Submit</button>
+
+                    <div class="submit-btn-container">
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -93,6 +99,7 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
                     socialMedia: '',
                     paymentMethod: '',
                     paymentProof: null,
+                    paymentProofName: '', // For storing the file name
                     availableTimes: ['09:00 AM', '10:00 AM', '11:00 AM', '01:00 PM', '02:00 PM', '03:00 PM']
                 };
             },
@@ -102,11 +109,11 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
 
                     // Display the relevant account information based on payment method
                     if (newMethod === 'bdo') {
-                        accountInfo = 'BDO =\nGlyza Go - 011490040291';
+                        accountInfo = 'BDO\nGlyza Go - 011490040291';
                     } else if (newMethod === 'gcash') {
-                        accountInfo = 'Gcash =\nNI***E JO**E D. - 09667014837';
+                        accountInfo = 'Gcash\nNI***E JO**E D. - 09667014837';
                     } else if (newMethod === 'maya') {
-                        accountInfo = 'Maya =\nNI***E JO**E D. - 09667014837';
+                        accountInfo = 'Maya\nNI***E JO**E D. - 09667014837';
                     }
 
                     if (accountInfo) {
@@ -122,6 +129,7 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
             methods: {
                 onFileChange(event) {
                     this.paymentProof = event.target.files[0]; // Capture the selected file
+                    console.log('Selected file:', this.paymentProof);
                 },
                 convertTo24Hour(time) {
                     const [timePart, period] = time.split(' ');
@@ -136,6 +144,18 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
                     return `${String(hour).padStart(2, '0')}:${minute}:00`; // Format to HH:MM:SS
                 },
                 submitBooking() {
+                    // Check if the payment proof is attached
+                    if (!this.paymentProof) {  
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Please attach a proof of payment to proceed with the booking.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                        return; // Prevent form submission
+                    }
+
+                    // Continue with form submission if the file is attached
                     const formData = new FormData();
                     formData.append('firstName', this.firstName);
                     formData.append('surname', this.surname);
@@ -148,33 +168,53 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
                     formData.append('paymentMethod', this.paymentMethod);
                     formData.append('paymentProof', this.paymentProof);
 
-                    axios.post('book_process.php', formData)
+                    // Check if the email is registered
+                    axios.post('check_email.php', { email: this.email })
                         .then(response => {
-                            if (response.data.success) {
-                                Swal.fire({
-                                    title: 'Success',
-                                    text: response.data.message,
-                                    icon: 'success',
-                                    confirmButtonText: 'OK'
-                                }).then(() => {
-                                    // Redirect to the calendar page after clicking OK
-                                    window.location.href = 'calendar.php';
-                                });
+                            if (response.data.isRegistered) {
+                                // Proceed with booking
+                                axios.post('book_process.php', formData)
+                                    .then(response => {
+                                        if (response.data.success) {
+                                            Swal.fire({
+                                                title: 'Success',
+                                                text: response.data.message,
+                                                icon: 'success',
+                                                confirmButtonText: 'OK'
+                                            }).then(() => {
+                                                window.location.href = 'calendar.php';
+                                            });
+                                        } else {
+                                            Swal.fire('Error', response.data.message, 'error');
+                                        }
+                                    })
+                                    .catch(error => {
+                                        Swal.fire('Error', 'There was an error processing your booking. Please try again.', 'error');
+                                    });
                             } else {
-                                Swal.fire('Error', response.data.message, 'error');
+                                Swal.fire({
+                                    title: 'Error',
+                                    text: 'The email you entered is not registered. Please use a registered email to book.',
+                                    icon: 'error',
+                                    confirmButtonText: 'OK'
+                                });
                             }
                         })
                         .catch(error => {
-                            Swal.fire('Error', 'There was an error processing your booking. Please try again.', 'error');
+                            Swal.fire('Error', 'There was an error checking your email. Please try again later.', 'error');
                         });
                 }
             }
+
+
+
         });
     </script>
 </body>
 
+
 <style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
     body {
         background-image: url('image/bg2.png');
@@ -192,50 +232,133 @@ $date = isset($_GET['date']) ? date('Y-m-d', strtotime($_GET['date'])) : '';
         display: flex;
         justify-content: center;
         opacity: 100;
+        padding: 20px;
     }
 
     .booking-card {
-        width: 450px;
-        background: transparent;
+        width: 80%; /* Increased width for landscape */
+        max-width: 1200px; /* Set max width for large screens */
+        background: #B9E5E8;
         padding: 2rem;
         border: 2px solid rgba(255, 255, 255, .5);
         border-radius: 20px;
         position: relative;
-        height: 10%;
-        backdrop-filter: blur(20px);
+        height: auto;
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
     }
 
     .booking-header h1 {
         margin-bottom: 1rem;
         color: black;
         text-align: center;
+        width: 100%; /* Ensure header is full-width */
     }
 
     .booking-card-form {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        width: 100%;
+        justify-content: space-between;
     }
 
     .input {
         display: flex;
         flex-direction: column;
+        flex: 1;
+        min-width: 200px; /* Minimum width for input fields */
     }
 
     .input input, .input select {
         padding: 1rem;
-        border: 1px solid #ccc;
+        border: 2px solid #536493;
         border-radius: 10px;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
     }
 
-    .booking-card-form button {
-        background-color: black;
+    .submit-btn-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .submit-btn {
+        padding: 12px 24px;
+        background-color: #4A628A;
         color: white;
-        padding: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        transition: background .5s;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        width: 50%;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
 
+    .submit-btn:hover {
+        background-color: #7AB2D3;
+    }
+
+    .input input[type="file"] {
+        display: none; /* Hide the default file input */
+    }
+
+    .file-label {
+        display: inline-block;
+        padding: 1rem;
+        background-color: #9EDF9C;
+        color: black;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: small;
+        text-align: center;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .file-label:hover {
+        background-color: #62825D;
+    }
+
+    .file-label i {
+        margin-right: 0.5rem;
+    }
+
+    .file-label:active {
+        background-color: #2a4356;
+    }
+
+    /* Style adjustments for large screens */
+    @media (min-width: 768px) {
+        .booking-card {
+            width: 60%; /* Adjust width for landscape on tablet */
+        }
+
+        .input input, .input select {
+            font-size: 1rem;
+        }
+    }
+
+    /* Ensure proper adjustments for smaller screens */
+    @media (max-width: 767px) {
+        .booking-card {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .booking-card-form {
+            flex-direction: column;
+        }
+
+        .input {
+            flex: none;
+            width: 100%;
+        }
+    }
+
+</style>

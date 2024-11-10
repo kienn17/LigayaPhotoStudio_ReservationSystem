@@ -28,7 +28,7 @@
     <div id="app">
         <!-- Sidebar -->
         <div class="sidebar">
-            <a href="#" class="logo pr">
+            <a class="logo pr">
                 <i class='bx bxs-user'></i>
                 <div class="logo-name"><span>Admin</span> Dashboard</div>
             </a>
@@ -391,19 +391,22 @@
         .sidebar .logo{
             font-size: 18px;
             font-weight: 700;
-            height: 56px;
+            height: 56px; /* Adjust the height to fit */
             display: flex;
-            align-items: center;
+            align-items: center; /* Center the content vertically */
             color: rgb(221, 176, 121);
             z-index: 500;
-            padding-bottom: 20px;
+            padding: 0 10px; /* Adjust padding to fit better */
             box-sizing: content-box;
             color: white;
             transition: all 0.5s ease;
+            pointer-events: none;
+            margin-bottom: 20px; /* Add space below logo */
         }
 
         .sidebar .logo .logo-name span{
             color: white;
+            pointer-events: none;
         }
 
         .sidebar .logo .bx{

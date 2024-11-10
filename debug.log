@@ -560,76 +560,99 @@ Array
 )
 Array
 (
-    [firstName] => aisha
-    [surname] => salcedo
-    [email] => aishasalcedo4@gmail.com
-    [phone] => 09993749393
-    [date] => 2024-10-24
-    [time] => 13:00:00
-    [package] => masaya
-    [socialMedia] => aisha.com
-    [paymentMethod] => gcash
+    [firstName] => user
+    [surname] => test
+    [email] => usertest@gmail.com
+    [phone] => 09991239393
+    [date] => 2024-11-01
+    [time] => 10:00:00
+    [package] => tuwa
+    [socialMedia] => user.com
+    [paymentMethod] => bdo
 )
 Array
 (
     [paymentProof] => Array
         (
-            [name] => fdfdd.jpg
-            [full_path] => fdfdd.jpg
-            [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\phpEC4B.tmp
+            [name] => connect.png
+            [type] => image/png
+            [tmp_name] => G:\xampp\tmp\php7408.tmp
             [error] => 0
-            [size] => 80761
+            [size] => 414445
         )
 
 )
 Array
 (
-    [firstName] => kienn
+    [firstName] => ash 
     [surname] => morel
-    [email] => aishasalcedo4@gmail.com
-    [phone] => 09993749393
-    [date] => 2024-10-25
-    [time] => 11:00:00
-    [package] => masaya
-    [socialMedia] => aisha.com
+    [email] => ashmorel@gmail.com
+    [phone] => 09461815493
+    [date] => 2024-11-05
+    [time] => 09:00:00
+    [package] => tuwa
+    [socialMedia] => ash.com
     [paymentMethod] => gcash
 )
 Array
 (
     [paymentProof] => Array
         (
-            [name] => fdfdd.jpg
-            [full_path] => fdfdd.jpg
-            [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\php822E.tmp
+            [name] => connect.png
+            [type] => image/png
+            [tmp_name] => G:\xampp\tmp\phpB595.tmp
             [error] => 0
-            [size] => 80761
+            [size] => 414445
         )
 
 )
+Checking email: 
+Email check result: 0
 Array
 (
-    [firstName] => Rhea
-    [surname] => Dionisio
-    [email] => rheafillarca@gmail.com
-    [phone] => 09950796318
-    [date] => 2024-10-28
+    [firstName] => ash
+    [surname] => morel
+    [email] => ashmorel@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-11-10
     [time] => 14:00:00
     [package] => tuwa
-    [socialMedia] => rhea.com
+    [socialMedia] => ash.com
     [paymentMethod] => gcash
 )
 Array
 (
     [paymentProof] => Array
         (
-            [name] => PIXECT-20240828003445.jpg
-            [full_path] => PIXECT-20240828003445.jpg
+            [name] => bini_mikha.jfif
             [type] => image/jpeg
-            [tmp_name] => C:\xampp\tmp\php2586.tmp
+            [tmp_name] => G:\xampp\tmp\php3AA7.tmp
             [error] => 0
-            [size] => 98480
+            [size] => 63990
+        )
+
+)
+Array
+(
+    [firstName] => ash
+    [surname] => morel
+    [email] => ashmorel@gmail.com
+    [phone] => 09993749393
+    [date] => 2024-11-13
+    [time] => 14:00:00
+    [package] => tuwa
+    [socialMedia] => ash.com
+    [paymentMethod] => bdo
+)
+Array
+(
+    [paymentProof] => Array
+        (
+            [name] => bini_mikha.jfif
+            [type] => image/jpeg
+            [tmp_name] => G:\xampp\tmp\php7332.tmp
+            [error] => 0
+            [size] => 63990
         )
 
 )

@@ -23,21 +23,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Check if passwords match
-    if ($password !== $confirm_password) {
+    // Hash both password and confirm_password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_confirm_password = password_hash($confirm_password, PASSWORD_DEFAULT);
+
+    // Check if the two hashed values match to validate (note: hashing produces unique hashes, so hash the values before comparing)
+    if (!password_verify($confirm_password, $hashed_password)) {
         header("Location: signup.php?error=2"); // Error 2: Passwords do not match
         exit();
     }
 
-    // Hash the password before storing
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
     try {
-        // Prepare SQL statement to insert new user data, including plain confirm_password
+        // Prepare SQL statement to insert new user data
         $stmt = $pdo->prepare("INSERT INTO users (full_name, email, phone, username, password, confirm_password) VALUES (?, ?, ?, ?, ?, ?)");
 
         // Bind the parameters and insert data
-        $stmt->execute([$full_name, $email, $phone, $username, $hashed_password, $confirm_password]); // Store confirm_password as plain text
+        $stmt->execute([$full_name, $email, $phone, $username, $hashed_password, $hashed_confirm_password]);
 
         // Redirect to login page after successful sign-up
         header("Location: login.php");

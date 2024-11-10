@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2024 at 12:21 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Oct 18, 2024 at 10:38 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,7 @@ CREATE TABLE `book_record` (
 --
 
 INSERT INTO `book_record` (`id`, `firstname`, `surname`, `email`, `phone`, `socmed_link`, `package`, `date`, `time`, `payment_proof`, `payment_method`, `status`) VALUES
-(3, 'aisha', 'salcedo', 'aishasalcedo4@gmail.com', '09461815493', 'dsadasd', 'tuwa', '2024-10-23', '14:00:00', 'proof_of_payment/6716d317919b7_457128084_1263068868200208_611803484880046543_n.jpg', 'bdo', 'Confirmed');
+(18, 'Angela', 'Logronio', 'angelalogronio@gmail.com', '99998769090', 'link.com', 'masaya', '2024-10-18', '14:00:00', 'proof_of_payment/671216a3aef6a_459305947_2395999580732099_4575604873121065177_n.jpg', 'maya', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `phone`, `username`, `password`, `confirm_password`) VALUES
 (10, 'test user', 'testuser@gmail.com', '09994569898', 'test12', '$2y$10$lbxiw2TrNlL8go.f8ubFNO9X8vY/buBz7cAW47O12mcNeAUL90ibS', 'test123'),
-(12, 'aisha salcedo', 'aishasalcedo4@gmail.com', '09461815493', 'kienn', '$2y$10$lTCRd73O0TDM0Sl.v23E.uwmLxcpaUB2HFvqf.IsSMNecwD0szmF2', '$2y$10$lTCRd73O0TDM0Sl.v23E.uwmLxcpaUB2HFvqf.IsSMNecwD0szmF2');
+(11, 'aisha salcedo', 'aishasalcedo4@gmail.com', '09993749393', 'aisha12', '$2y$10$uxknOSblPE7A1uUuuFkHOu.geyxxd481cbMV9LKDG6yDhFZ5W9Ku.', 'aisha123');
 
 --
 -- Indexes for dumped tables
@@ -157,7 +157,7 @@ ALTER TABLE `admin_account`
 -- AUTO_INCREMENT for table `book_record`
 --
 ALTER TABLE `book_record`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -169,7 +169,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -133,13 +133,12 @@
 
     .signup-card {
         width: 450px;
-        background: transparent;
+        background: #B9E5E8;
         padding: 2rem;
         border: 2px solid rgba(255, 255, 255, .5);
         border-radius: 20px;
         position: relative;
         height: auto; /* Adjusted height */
-        backdrop-filter: blur(20px);
         box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     }
 
@@ -188,7 +187,9 @@
         padding-left: calc(1rem * 3.5);
         border-radius: 10px;
         width: 70%; /* Full width */
-        transition: background .5s;    
+        transition: background .5s; 
+        font-family: 'Poppins', sans-serif;  
+
     }
 
     .signup-card input:focus {
@@ -196,7 +197,7 @@
     }
 
     .signup-card-form button {
-        background-color: black;
+        background-color: #7AB2D3;
         color: white;
         padding: 1rem;
         text-transform: uppercase;
@@ -207,7 +208,7 @@
     }
 
     .signup-card-form button:hover {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: #4A628A;
     }
 
     .signup-card-form .login-link {
@@ -215,12 +216,14 @@
         text-align: center;
         margin: 20px 0 15px;
         margin-top: -10px;
+        font-family: 'Poppins', sans-serif;
     }
 
     .login-link p a {
         color: rgb(0, 180, 252);
         text-decoration: none;
         font-weight: 600;
+        font-style: 'Poppins';
     }
 
     .login-link p a:hover {

@@ -50,7 +50,7 @@
                             <td v-for="day in week" :key="day.date" :class="{ today: day.isToday }">
                                 <div v-if="day.number">
                                     <h4>{{ day.number }}</h4>
-                                    <button v-if="day.isPast" class="btn btn-danger btn-xs" disabled>Date Passed</button>
+                                    <button v-if="day.isPast" class="btn btn-danger btn-xs" disabled>Dated Passed</button>
                                     <button v-else-if="day.isBooked" class="btn btn-danger btn-xs">Already Booked</button>
                                     <a v-else :href="'book_form.php?date=' + day.date" class="btn btn-custom btn-xs">
                                         Book Now
@@ -146,31 +146,24 @@
                     }
                 },
                 fetchRecentBookings() {
-                    fetch('fetch_recent_bookings.php', { 
-                        credentials: 'include' // Ensures cookies (sessions) are sent with the request
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data.error) {
-                            if (data.error === 'User not logged in') {
-                                this.redirectToLogin(); // Automatically redirect to login if not logged in
-                            } else {
-                                console.error(data.error); // Handles other errors
+                    fetch('fetch_recent_bookings.php') // Ensure this path is correct
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
                             }
-                        } else {
-                            this.recentBookings = data; // Set the bookings data to the Vue data property
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Fetch error:', error);
-                    });
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.error) {
+                                console.error(data.error);
+                            } else {
+                                this.recentBookings = data; // Set the bookings data to the Vue data property
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Fetch error:', error);
+                        });
                 },
-
 
 
                 showPaymentProof(paymentProof) {
@@ -330,15 +323,17 @@
         .sidebar .logo{
             font-size: 18px;
             font-weight: 700;
-            height: 56px;
+            height: 56px; /* Adjust the height to fit */
             display: flex;
-            align-items: center;
+            align-items: center; /* Center the content vertically */
             color: rgb(221, 176, 121);
             z-index: 500;
-            padding-bottom: 20px;
+            padding: 0 10px; /* Adjust padding to fit better */
             box-sizing: content-box;
             color: white;
             transition: all 0.5s ease;
+            pointer-events: none;
+            margin-bottom: 20px; /* Add space below logo */
         }
 
         .sidebar .logo .logo-name span{

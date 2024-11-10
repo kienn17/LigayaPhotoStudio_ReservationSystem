@@ -31,10 +31,12 @@ include('db.php');
                                 <span class="form-item-icon material-symbols-rounded">email</span>
                                 <input type="email" v-model="email" required placeholder="Enter your email" />
                             </div>
+                            <br>
                             <div class="input input-with-icon">
                                 <span class="form-item-icon material-symbols-rounded">person</span>
                                 <input type="text" v-model="username" required placeholder="Enter your username" />
                             </div>
+                            <br>
                             <button type="submit">Submit</button>
                         </div>
                         
@@ -44,10 +46,12 @@ include('db.php');
                                 <span class="form-item-icon material-symbols-rounded">lock</span>
                                 <input v-model="password" type="password" placeholder="New Password" required>
                             </div>
+                            <br>
                             <div class="input input-with-icon">
                                 <span class="form-item-icon material-symbols-rounded">lock</span>
                                 <input v-model="confirmPassword" type="password" placeholder="Confirm Password" required>
                             </div>
+                            <br>
                             <button type="submit">Reset Password</button>
                         </div>
 
@@ -141,11 +145,10 @@ include('db.php');
 
         .forgotpassword-card {
             width: 450px;
-            background: transparent;
+            background: #B9E5E8;
             padding: 2rem;
             border: 2px solid rgba(255, 255, 255, .5);
             border-radius: 20px;
-            backdrop-filter: blur(20px);
             box-shadow: 0 0 30px rgba(0, 0, 0, .5);
         }
 
@@ -165,14 +168,16 @@ include('db.php');
 
         .forgotpassword-card-form .input-with-icon {
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .forgotpassword-card-form .input-with-icon .form-item-icon {
-            position: absolute;
-            top: .82rem;
-            left: 1.4rem;
             font-size: 1.3rem;
-            opacity: .4;
+            opacity: .8;
+            margin-right: 0.8rem; /* Adjust space between icon and input */
+            color: black;
+            font-weight: bold;
         }
 
         .forgotpassword-card-form input {
@@ -180,11 +185,12 @@ include('db.php');
             outline: none;
             background: white;
             padding: 1rem 1.5rem;
-            padding-left: calc(1rem * 3.5);
+            padding-left: 1.5rem; /* Adjusted padding to make room for the icon */
             border-radius: 10px;
             width: 70%;
             transition: background .5s;
         }
+
 
         .forgotpassword-card-form input:focus {
             background: white;
@@ -193,7 +199,7 @@ include('db.php');
         .forgotpassword-card-form button {
             display: block;
             margin: 0 auto;
-            background-color: black;
+            background-color: #7AB2D3;
             color: white;
             padding: 1rem;
             text-transform: uppercase;
@@ -204,12 +210,12 @@ include('db.php');
         }
 
         .forgotpassword-card-form button:hover {
-            background-color: rgba(0, 0, 0, .5);
+            background-color: #4A628A;
         }
 
         .back-to-login {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 5px;
         }
 
         .back-to-login p a {
