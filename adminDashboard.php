@@ -34,12 +34,12 @@
             </a>
 
             <ul class="side-menu">
-                <li v-for="menuItem in menuItems" :key="menuItem.id" :class="{ 'active-menu-category': menuItem.label === activeMenu }">
-                    <a :href="menuItem.link" @click.prevent="menuItem.label === 'Logout' ? redirectToAdminLogin() : switchMenu(menuItem.label)">
-                        <i :class="menuItem.iconClass"></i>
-                        {{ menuItem.label }}
-                    </a>
-                </li>
+            <li v-for="menuItem in menuItems" :key="menuItem.id" :class="{ 'active-menu-category': menuItem.label === activeMenu }">
+                <a :href="menuItem.link" @click.prevent="menuItem.label === 'Logout' ? redirectToAdminLogin() : switchMenu(menuItem.label)">
+                    <i :class="menuItem.iconClass"></i>
+                    {{ menuItem.label }}
+                </a>
+            </li>
             </ul>
         </div>
 
@@ -54,7 +54,7 @@
 
                         <ul class="insights">
                             <li>
-                                <i class='bx bxs-calendar-check' ></i>
+                                <i class='bx bxs-calendar-check'></i>
                                 <span class="info">
                                     <p>UPCOMING RESERVATIONS</p>
                                     <div>{{ totalReservations }}</div>
@@ -64,9 +64,8 @@
                     </div>
                 </div>
 
-                <!-- Customer Records -->
-                <div class="Customer-Records" v-if="activeMenu == 'Customer Records'">
-                    <h1><i class='bx bx-user'></i> List Records</h1>
+                <div class="Upcoming-Visits" v-if="activeMenu == 'Upcoming Visits'">
+                    <h1><i class='bx bx-user'></i> Upcoming Visits</h1>
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
@@ -80,12 +79,76 @@
                                 <th>Time</th>
                                 <th>Proof of Payment</th>
                                 <th>Status</th>
-                                <th>Action</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="(customer, index) in customerRecords" :key="index">
+                                <td>{{ customer.firstname }}</td>
+                                <td>{{ customer.surname }}</td>
+                                <td>
+                                    <a :href="`mailto:${customer.email}`" target="_blank">{{ customer.email }}</a>
+                                </td>
+                                <td>{{ customer.phone }}</td>
+                                <td>{{ customer.socmed_link }}</td>
+                                <td>{{ customer.package }}</td>
+                                <td>{{ customer.date }}</td>
+                                <td>{{ customer.time }}</td>
+                                <td>
+                                    <img
+                                        :src="customer.proof_url ? `proof_of_payment/${customer.proof_url}` : 'default_image.png'"
+                                        alt="Proof of Payment"
+                                        style="cursor: pointer; width: 50px; height: auto;"
+                                        @click="showPaymentProof(customer.proof_url)"
+                                    >
+                                </td>
+                                <td>
+                                    <select v-model="customer.status" @change="updateBookingStatus(customer.id, customer.status)">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Confirmed">Confirmed</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                
+                <!-- Customer Records -->
+                <div class="Customer-Records" v-if="activeMenu == 'Customer Records'">
+                    <h1><i class='bx bx-user'></i> Customer Records</h1>
+
+                    <!-- Search and Filter Section -->
+                    <div class="filters">
+                        <input type="text" v-model="searchQuery" placeholder="Search by name, email, or package" class="form-control" />
+                        
+                        <select v-model="selectedStatus" class="form-control">
+                            <option value="">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Successful">Successful</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+
+                    <!-- Customer Records Table -->
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Social Media Link</th>
+                                <th>Package</th>
+                                <th>Reservation Date</th>
+                                <th>Time</th>
+                                <th>Proof of Payment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(customer, index) in filteredCustomerRecords" :key="index">
                                 <td>{{ customer.firstname }}</td>
                                 <td>{{ customer.surname }}</td>
                                 <td>
@@ -99,26 +162,17 @@
                                 <td>{{ customer.date }}</td>
                                 <td>{{ customer.time }}</td>
                                 <td>
-                                    <img
-                                        :src="`proof_of_payment/${customer.proof_url}`"
-                                        alt="Proof of Payment"
-                                        style="cursor: pointer; width: 50px; height: auto;"
-                                        @click="showPaymentProof(customer.proof_url)"
-                                    >
+                                    <img :src="customer.proof_url ? `proof_of_payment/${customer.proof_url}` : 'default_image.png'" 
+                                    alt="Proof of Payment" 
+                                    style="cursor: pointer; width: 50px; height: auto;" 
+                                    @click="showPaymentProof(customer.proof_url)">
                                 </td>
-                                <td>
-                                <select v-model="customer.status" @change="updateBookingStatus(customer.id, customer.status)">
-                                    <option value="Pending">Pending</option>
-                                    <option value="Confirmed">Confirmed</option>
-                                    <option value="Cancelled">Cancelled</option>
-                                </select>
-                                <td>
-                                    <button class="btn btn-danger" @click="removeCustomer(customer.id)">Remove</button>
-                                </td>
+                                <td>{{ customer.status }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
             </main>
         </div>
     </div>
@@ -128,20 +182,47 @@
             el: '#app',
             data() {
                 return {
+                    searchQuery: '', // To store the search query
+                    selectedStatus: '',
                     activeMenu: 'Dashboard', // Default menu
                     menuItems: [
                         { id: 1, label: 'Dashboard', link: '', iconClass: 'bx bx-home' },
-                        { id: 2, label: 'Customer Records', link: '', iconClass: 'bx bx-user' },
-                        { id: 3, label: 'Logout', link: '', iconClass: 'bx bx-log-out' },
+                        { id: 2, label: 'Upcoming Visits', link: '', iconClass: 'bx bx-user' },
+                        { id: 3, label: 'Customer Records', link: '', iconClass: 'bx bx-user' },
+                        { id: 4, label: 'Logout', link: '', iconClass: 'bx bx-log-out' },
                     ],
                     totalReservations: 0,
                     customerRecords: [],
+                    upcomingVisits: [], // Separate variable for upcoming visits
+                    upcomingReservations: [],
                 };
+            },
+            computed: {
+                filteredCustomerRecords() {
+                    return this.customerRecords.filter(customer => {
+                        // Filter by status
+                        const matchesStatus = this.selectedStatus ? customer.status === this.selectedStatus : true;
+
+                        // Filter by search query (case-insensitive)
+                        const matchesSearch = customer.firstname.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                                            customer.surname.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                                            customer.email.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                                            customer.package.toLowerCase().includes(this.searchQuery.toLowerCase());
+
+                        return matchesStatus && matchesSearch;
+                    });
+                }
             },
             methods: {
                 switchMenu(menu) {
                     this.activeMenu = menu;
-                    if (menu === 'Customer Records') {
+                    if (menu === 'Upcoming Visits') {
+                        this.fetchUpcomingVisits(); // Fetch only upcoming visits
+                    } else if (menu === 'Cancelled Bookings') {
+                        this.fetchCancelledBookings();
+                    } else if (menu === 'Successful Bookings') {
+                        this.fetchSuccessfulBookings();
+                    } else if (menu === 'Customer Records') {
                         this.fetchCustomerRecords();
                     } else if (menu === 'Dashboard') {
                         this.fetchUpcomingReservations();
@@ -151,44 +232,29 @@
                     window.location.href = 'admin_login.php';
                 },
                 fetchCustomerRecords() {
-                    axios.get('fetch_customers.php')
+                    axios.get('fetch_customers.php') // Backend script for all customer records
                         .then(response => {
-                            this.customerRecords = response.data;
+                            if (response.data.status === 'success') {
+                                this.customerRecords = response.data.records;
+                            } else {
+                                console.error('Failed to load customer records');
+                            }
                         })
-                        .catch(error => {
-                            console.error(error);
-                        });
+                        .catch(error => console.error('Error fetching customer records:', error));
                 },
-                removeCustomer(customerId) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes, remove it!',
-                        cancelButtonText: 'Cancel',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            axios.post('remove_customer.php', { id: customerId })
-                                .then(response => {
-                                    if (response.data.success) {
-                                        this.customerRecords = this.customerRecords.filter(customer => customer.id !== customerId);
-                                        Swal.fire('Removed!', 'The customer record has been removed.', 'success');
-                                    } else {
-                                        Swal.fire('Error!', response.data.error || 'Failed to remove the customer record.', 'error');
-                                    }
-                                })
-                                .catch(error => {
-                                    Swal.fire('Error!', 'There was an issue removing the customer record.', 'error');
-                                    console.error(error);
-                                });
-                        }
-                    });
+                fetchUpcomingVisits() {
+                    axios.get('fetch_upcoming_visits.php') // Backend script for upcoming visits
+                        .then(response => {
+                            if (response.data.status === 'success') {
+                                this.upcomingVisits = response.data.bookings; // Store in 'upcomingVisits'
+                            } else {
+                                console.error('Failed to load upcoming visits');
+                            }
+                        })
+                        .catch(error => console.error('Error fetching upcoming visits:', error));
                 },
                 showPaymentProof(proofUrl) {
                     const fullUrl = `proof_of_payment/${proofUrl}`; // Construct full URL to the image
-                    console.log('Fetching image from URL:', fullUrl);
-
                     Swal.fire({
                         title: 'Proof of Payment',
                         text: 'Here is the proof of payment.',
@@ -199,6 +265,7 @@
                         confirmButtonText: 'Close',
                     });
                 },
+
                 updateBookingStatus(customerId, newStatus) {
                     console.log('Updating booking status...', { customerId, newStatus });
 
@@ -207,13 +274,15 @@
                         status: newStatus
                     }), {
                         headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded' // Explicitly set form data type
+                            'Content-Type': 'application/x-www-form-urlencoded'
                         }
                     })
                     .then(response => {
-                        console.log('Response from server:', response.data); // Log server response
                         if (response.data.success) {
                             Swal.fire('Success!', 'Booking status updated', 'success');
+                            // Refresh the lists after updating status
+                            this.fetchUpcomingVisits();
+                            this.fetchCancelledBookings();
                         } else {
                             Swal.fire('Error!', response.data.error || 'Failed to update booking status', 'error');
                         }
@@ -234,13 +303,13 @@
                 },
             },
             mounted() {
-                this.fetchCustomerRecords();
                 this.fetchUpcomingReservations();
+                this.fetchUpcomingVisits(); // Initial fetch for upcoming visits
             },
         });
     </script>
 
-
+</body>
 
     
     <style type="text/css">
@@ -308,7 +377,25 @@
             z-index: 1050;
         }
 
+        .filters {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px; /* Space between the search bar and dropdown */
+            margin-bottom: 20px;
+        }
 
+        .filter-search, .filter-status {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 150px; /* Adjust the width of the input and select */
+        }
+
+        .filter-search:focus, .filter-status:focus {
+            border-color: #007bff;
+            outline: none;
+        }
 
 
         .bx{
@@ -514,7 +601,7 @@
             padding: 36px 24px;
             max-height: calc(100vh - 56px);
             overflow-y: scroll;
-            background-color: rgb(182, 208, 226);
+            background-color: #8EACCD;
             border-radius: 20px;
             flex: 1;
         }
@@ -540,7 +627,7 @@
             display: flex;
             grid-gap: 10px;
             font-weight: 500;
-            background: black;
+            background: #8EACCD;
             height: fit-content;
         }
 
